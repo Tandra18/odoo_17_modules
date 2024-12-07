@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="event_form" model="ir.ui.view">
+            <field name="name">event.form</field>
+            <field name="model">event.management</field>
+            <field name="arch" type="xml">
+                <form string="Event Form">
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <label for="event_name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="event_name" placeholder="eg. Development Workshop"/>
+                            </h1><br/>
+                            <div>
+                                <group string="Event Info" class="o_half_width">
+                                    <group>
+                                        <field name="event_type"/>
+                                        <field name="organizer" placeholder="Host name"/>
+                                        <field name="max_person" widget="char"/>
+                                    </group>
+                                    <group>
+                                        <field name="website" placeholder="https://www.xxx.com/"/>
+                                        <field name="hotline" placeholder="09-xxx-xxx-xxx" widget="char"/>
+                                        <field name="event_description" placeholder="About event!"/>
+                                    </group>
+                                </group>
+
+                                <group string="Schedule and Place" class="o_half_width">
+                                    <group>
+                                        <field name="event_date" widget="date"/>
+                                        <field name="start_time" widget="time" placeholder="Example: 1:00 PM"/>
+                                    </group>
+                                    <group>
+                                        <field name="duration" placeholder="Example: 2:30 Hrs"/>
+                                        <field name="location" placeholder="Event's location"/>
+                                    </group>
+                                </group>
+                            </div>
+                        </div>
+                        <group string="Payment Info">
+                            <group>
+                                <field name="fees" widget="radio"/>
+                            </group>
+                            <group>
+                                <field name="amount"
+                                       widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"
+                                       invisible="fees != 'charged'"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="payment" invisible="fees != 'charged'"/>
+
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
