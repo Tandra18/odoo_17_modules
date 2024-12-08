@@ -8,13 +8,14 @@
                 <form string="Event Form">
                     <sheet>
                         <field name="image" widget="image" class="oe_avatar"/>
-                        <div class="oe_title">
-                            <label for="event_name" class="oe_edit_only"/>
-                            <h1>
-                                <field name="event_name" placeholder="eg. Development Workshop"/>
-                            </h1><br/>
+                            <div class="oe_title">
+                                <label for="name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" placeholder="eg. Development Workshop"/>
+                                </h1><br/>
+                            </div>
                             <div>
-                                <group string="Event Info" class="o_half_width">
+                                <group string="Event Info">
                                     <group>
                                         <field name="event_type"/>
                                         <field name="organizer" placeholder="Host name"/>
@@ -27,7 +28,7 @@
                                     </group>
                                 </group>
 
-                                <group string="Schedule and Place" class="o_half_width">
+                                <group string="Schedule and Place">
                                     <group>
                                         <field name="event_date" widget="date"/>
                                         <field name="start_time" widget="time" placeholder="Example: 1:00 PM"/>
@@ -38,7 +39,6 @@
                                     </group>
                                 </group>
                             </div>
-                        </div>
                         <group string="Payment Info">
                             <group>
                                 <field name="fees" widget="radio"/>

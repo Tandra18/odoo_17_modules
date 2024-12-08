@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="image" widget="image" options="{'size':[20,20]}" nolabel="0"/>
-                    <field name="event_name" optional="show"/>
+                    <field name="name" optional="show"/>
                     <field name="event_type" optional="show"/>
                     <field name="organizer" optional="show"/>
                     <field name="event_date" optional="hide"/>

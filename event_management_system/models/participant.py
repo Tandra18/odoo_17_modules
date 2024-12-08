@@ -6,12 +6,13 @@ class participants(models.Model):
     _description = 'Event Participants'
     _table = 'participants'
 
+    image = fields.Binary(string="Image", required=True)
     name = fields.Char(string='Name', required=True)
     nrc = fields.Char(string='NRC', required=True)
     email = fields.Char(string="Email", required=True)
     phone = fields.Integer(string="Phone Number", required=True)
     event_id = fields.Many2one('event.management', string='Event', required=True)
-    reg_date = fields.Datetime(string='Registration Date', default=fields.Datetime.now)
+    reg_date = fields.Date(string='Registration Date', default=fields.Datetime.now)
     payment = fields.Selection(
         [
             ('kpay', 'KBZ Pay'),

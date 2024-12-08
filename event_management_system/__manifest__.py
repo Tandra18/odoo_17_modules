@@ -15,6 +15,7 @@
         "views/event_form.xml",
         "views/event_views_tree.xml",
         "views/participant_views.xml",
+        "views/participant_form.xml",
 
     ],
     "assests":{

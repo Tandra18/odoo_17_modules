@@ -10,7 +10,7 @@ class Event(models.Model):
 
     image = fields.Binary(string="Event Logo")
     organizer = fields.Char(string="Organizer", required=True)
-    event_name = fields.Char(string="Event Name", required=True)
+    name = fields.Char(string="Event Name", required=True)
     event_description = fields.Text(string="Description", help="Tell something about the event!")
     event_type = fields.Selection(
         [
