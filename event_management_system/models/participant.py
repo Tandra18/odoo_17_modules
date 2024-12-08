@@ -1,4 +1,6 @@
-from odoo import fields, models, api
+import re
+
+from odoo import fields, models, api, exceptions
 
 
 class participants(models.Model):
@@ -10,7 +12,7 @@ class participants(models.Model):
     name = fields.Char(string='Name', required=True)
     nrc = fields.Char(string='NRC', required=True)
     email = fields.Char(string="Email", required=True)
-    phone = fields.Integer(string="Phone Number", required=True)
+    phone = fields.Char(string="Phone Number", required=True)
     event_id = fields.Many2one('event.management', string='Event', required=True)
     reg_date = fields.Date(string='Registration Date', default=fields.Datetime.now)
     payment = fields.Selection(
@@ -22,5 +24,22 @@ class participants(models.Model):
             ('awallet', 'A+ Wallet'),
         ], string="Choose Payment Type"
     )
+
+    @api.constrains('phone')
+    def _check_hotline_number(self):
+        for record in self:
+            if record.phone:
+                if not re.match(r'^\d{9,11}$', record.phone):
+                    raise exceptions.ValidationError("Phone number must be a numeric value between 9 and 11 digits!")
+
+    @api.constrains('email')
+    def _check_email(self):
+        for record in self:
+            if record.email:
+                if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',record.email):
+                    raise exceptions.ValidationError("Please enter a valid email address!")
+
+
+
 
     # _sql_constraints = ('email_unique', 'unique(email)', 'Participant Email must be unique!')

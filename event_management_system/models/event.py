@@ -38,7 +38,7 @@ class Event(models.Model):
     amount = fields.Integer(string="Amount")
     currency_id = fields.Many2one('res.currency',
                                   string="Currency",
-                                  default=lambda self: self.env.company.currency_id)
+                                  default=lambda self: self.env['res.currency'].search([('name', '=', 'MMK')], limit=1))
     payment_ids = fields.Many2many(
         'payment.methods',
         string="Acceptable Payments",
@@ -56,10 +56,10 @@ class Event(models.Model):
 
     @api.constrains('hotline')
     def _check_hotline_number(self):
+        regex = r'^\d{9,11}$'
         for record in self:
-            if len(record.hotline) != 11:
-                raise exceptions.ValidationError("Phone number must be 11 digits!")
-
+            if not re.match(regex, record.hotline):
+                raise exceptions.ValidationError("Hotline must be a numeric value between 9 and 11 digits!")
     @api.constrains('max_person', 'event_type')
     def _check_attendants(self):
         for record in self:
