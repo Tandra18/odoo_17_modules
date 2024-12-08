@@ -17,6 +17,8 @@
                         <div>
                             <group>
                                 <group string="Personal Info">
+                                    <field name="age" widget="char"/>
+                                    <field name="gender" widget="radio" options="{'horizontal': true}"/>
                                     <field name="nrc" placeholder="xx/xxx(N)xxxxxx"/>
                                     <field name="email" placeholder="example@gmail.com"/>
                                     <field name="phone" placeholder="09-xxx-xxx-xxx" widget="char"/>

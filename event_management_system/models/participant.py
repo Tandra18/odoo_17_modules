@@ -9,6 +9,13 @@ class participants(models.Model):
     _table = 'participants'
 
     image = fields.Binary(string="Image", required=True)
+    age = fields.Integer(string="Age", required=True)
+    gender = fields.Selection(
+        [
+            ('male', 'Male'),
+            ('female', 'Female'),
+        ], string="Gender", required=True
+    )
     name = fields.Char(string='Name', required=True)
     nrc = fields.Char(string='NRC', required=True)
     email = fields.Char(string="Email", required=True)
@@ -39,7 +46,10 @@ class participants(models.Model):
                 if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',record.email):
                     raise exceptions.ValidationError("Please enter a valid email address!")
 
-
-
+    @api.constrains('age')
+    def _check_age(self):
+        for record in self:
+            if record.age < 10 or record.age > 99:
+                raise exceptions.ValidationError("Age must be between 10 to 99!")
 
     # _sql_constraints = ('email_unique', 'unique(email)', 'Participant Email must be unique!')
