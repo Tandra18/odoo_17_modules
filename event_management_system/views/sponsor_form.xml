@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="sponsor_form" model="ir.ui.view">
+            <field name="name">sponsor.form</field>
+            <field name="model">event.sponsor</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="image" class="oe_avatar" widget="image"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="eg. Royal-D"/>
+                            </h1><br/>
+                        </div>
+                        <div>
+                            <group>
+                                <group string="Associated Event">
+                                    <field name="event_id"/>
+                                    <field name="reg_date"/>
+                                    <field name="website"/>
+                                </group>
+                                <group string="Sponsorship Info">
+                                    <field name="level"/>
+                                    <field name="amount_contributed"/>
+                                    <field name="payment_status"/>
+                                </group>
+                            </group>
+                            <br/>
+                            <group>
+                                <group string="Contact Info">
+                                    <field name="contact_person"/>
+                                    <field name="phone" placeholder="09-xxx-xxx-xxx" widget="char"/>
+                                    <field name="email" placeholder="example@gmail.com"/>
+                                    <field name="address"/>
+                                </group>
+                                <group string="Miscellaneous">
+                                    <field name="support"
+                                           placeholder="Non-monetary contributions, if any..."
+                                           rows="2"/>
+                                    <field name="note"
+                                           placeholder="Other notes..."
+                                           rows="2"/>
+                                </group>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

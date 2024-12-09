@@ -1,1 +1,1 @@
-from .import event,participant
+from . import event, participant, sponsor

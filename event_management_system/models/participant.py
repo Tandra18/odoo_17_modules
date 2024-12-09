@@ -18,6 +18,7 @@ class participants(models.Model):
     )
     name = fields.Char(string='Name', required=True)
     nrc = fields.Char(string='NRC', required=True)
+    address = fields.Char(string="Address", required=True)
     email = fields.Char(string="Email", required=True)
     phone = fields.Char(string="Phone Number", required=True)
     event_id = fields.Many2one('event.management', string='Event', required=True)

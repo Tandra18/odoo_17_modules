@@ -15,19 +15,23 @@
                             </h1><br/>
                         </div>
                         <div>
-                            <group>
-                                <group string="Personal Info">
+                            <group string="Personal Info">
+                                <group>
                                     <field name="age" widget="char"/>
                                     <field name="gender" widget="radio" options="{'horizontal': true}"/>
                                     <field name="nrc" placeholder="xx/xxx(N)xxxxxx"/>
+                                </group>
+                                <group>
+                                    <field name="address"/>
                                     <field name="email" placeholder="example@gmail.com"/>
                                     <field name="phone" placeholder="09-xxx-xxx-xxx" widget="char"/>
                                 </group>
-                                <group string="Event Info">
-                                    <field name="event_id"/>
-                                    <field name="reg_date"/>
-                                    <field name="payment"/>
-                                </group>
+                            </group>
+                            <br/>
+                            <group string="Event Info">
+                                <field name="event_id"/>
+                                <field name="reg_date"/>
+                                <field name="payment"/>
                             </group>
                         </div>
                     </sheet>
