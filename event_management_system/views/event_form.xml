@@ -20,11 +20,12 @@
                                         <field name="event_type"/>
                                         <field name="organizer" placeholder="Host name"/>
                                         <field name="max_person" widget="char"/>
+                                        <field name="sponsor" placeholder="Event Sponsor"/>
                                     </group>
                                     <group>
                                         <field name="website" placeholder="https://www.xxx.com/"/>
                                         <field name="hotline" placeholder="09-xxx-xxx-xxx" widget="char"/>
-                                        <field name="event_description" placeholder="About event!"/>
+                                        <field name="event_description" placeholder="About event!" rows="4"/>
                                     </group>
                                 </group>
 

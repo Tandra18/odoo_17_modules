@@ -29,6 +29,7 @@ class Event(models.Model):
     location = fields.Char(string="Location")
     website = fields.Char(string="Website")
     hotline = fields.Char(string="Hotline", required=True)
+    sponsor = fields.Char(string="Sponsor")
     fees = fields.Selection(
         [
             ('foc', 'FOC'),
