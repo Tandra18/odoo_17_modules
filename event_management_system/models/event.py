@@ -40,10 +40,6 @@ class Event(models.Model):
     currency_id = fields.Many2one('res.currency',
                                   string="Currency",
                                   default=lambda self: self.env['res.currency'].search([('name', '=', 'MMK')], limit=1))
-    payment_ids = fields.Many2many(
-        'payment.methods',
-        string="Acceptable Payments",
-    )
 
     payment = fields.Selection(
         [

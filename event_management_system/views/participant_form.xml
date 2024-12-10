@@ -31,6 +31,7 @@
                             <group string="Event Info">
                                 <field name="event_id"/>
                                 <field name="reg_date"/>
+                                <field name="fees"/>
                                 <field name="payment"/>
                             </group>
                         </div>
