@@ -6,6 +6,27 @@
             <field name="model">event.management</field>
             <field name="arch" type="xml">
                 <form string="Event Form">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                        <button type="object"
+                                name="action_draft"
+                                string="Mark as Draft"
+                                invisible="state != 'cancel'"/>
+                        <button type="object"
+                                name="action_done"
+                                string="Done"
+                                class="oe_highlight"
+                                invisible="state != 'draft'"/>
+                        <button type="object"
+                                name="action_confirm"
+                                string="Confirm"
+                                class="oe_highlight"
+                                invisible="state != 'done'"/>
+                        <button type="object"
+                                name="action_cancel"
+                                string="Cancel"
+                                class="oe_highlight"/>
+                    </header>
                     <sheet>
                         <field name="image" widget="image" class="oe_avatar"/>
                             <div class="oe_title">
@@ -20,15 +41,13 @@
                                         <field name="event_type"/>
                                         <field name="organizer" placeholder="Host name"/>
                                         <field name="max_person" widget="char"/>
-                                        <field name="sponsor_id" placeholder="Event Sponsor"/>
                                     </group>
                                     <group>
                                         <field name="website" placeholder="https://www.xxx.com/"/>
                                         <field name="hotline" placeholder="09-xxx-xxx-xxx" widget="char"/>
-                                        <field name="event_description" placeholder="About event!" rows="4"/>
+                                        <field name="event_description" placeholder="About event!"/>
                                     </group>
                                 </group>
-
                                 <group string="Schedule and Place">
                                     <group>
                                         <field name="event_date" widget="date"/>
@@ -51,8 +70,6 @@
                                        invisible="fees != 'charged'"/>
                                 <field name="currency_id" invisible="1"/>
                                 <field name="payment" invisible="fees != 'charged'"/>
-
-
                             </group>
                         </group>
                     </sheet>

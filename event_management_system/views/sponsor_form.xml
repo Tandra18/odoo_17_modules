@@ -32,7 +32,7 @@
                                     <field name="payment_status" invisible="level == 'bronze'"/>
                                 </group>
                             </group>
-                            <br/>
+
                             <group>
                                 <group string="Contact Info">
                                     <field name="contact_person"/>

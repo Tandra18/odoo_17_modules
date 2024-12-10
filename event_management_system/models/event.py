@@ -29,7 +29,6 @@ class Event(models.Model):
     location = fields.Char(string="Location")
     website = fields.Char(string="Website")
     hotline = fields.Char(string="Hotline", required=True)
-    sponsor_id = fields.Many2one('event.sponsor', string="Sponsor")
     fees = fields.Selection(
         [
             ('foc', 'FOC'),
@@ -50,6 +49,31 @@ class Event(models.Model):
             ('awallet', 'A+ Wallet'),
         ], string="Acceptable Payments"
     )
+
+    state = fields.Selection(
+        [
+            ('draft', 'Draft'),
+            ('done', 'Done'),
+            ('confirm', 'Confirmed'),
+            ('cancel', 'Canceled'),
+        ], string="Status", default="draft", tracking=True
+    )
+
+    def action_draft(self):
+        for record in self:
+            record.state = 'draft'
+
+    def action_confirm(self):
+        for record in self:
+            record.state = 'confirm'
+
+    def action_done(self):
+        for record in self:
+            record.state = 'done'
+
+    def action_cancel(self):
+        for record in self:
+            record.state = 'cancel'
 
     @api.constrains('hotline')
     def _check_hotline_number(self):
@@ -95,5 +119,3 @@ class Event(models.Model):
                         "(XX Hr/hr/Hrs/hrs)\n"
                         "(XX:XX Hrs/hrs)"
                     )
-
-

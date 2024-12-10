@@ -27,7 +27,6 @@
                                     <field name="phone" placeholder="09-xxx-xxx-xxx" widget="char"/>
                                 </group>
                             </group>
-                            <br/>
                             <group>
                                 <group string="Event Info">
                                     <field name="event_id"/>

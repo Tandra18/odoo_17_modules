@@ -19,6 +19,7 @@
         "views/participant_views_tree.xml",
         "views/sponsor_views.xml",
         "views/sponsor_form.xml",
+        "views/sponsor_views_tree.xml",
 
 
     ],
