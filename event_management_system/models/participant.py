@@ -31,7 +31,7 @@ class participants(models.Model):
             ('ayapay', 'AYA Pay'),
             ('cbpay', 'CB Pay'),
             ('awallet', 'A+ Wallet'),
-        ], string="Choose Payment Type"
+        ], string="Payment Type"
     )
 
     @api.constrains('phone')
