@@ -23,8 +23,13 @@
                                 </group>
                                 <group string="Sponsorship Info">
                                     <field name="level"/>
-                                    <field name="amount_contributed"/>
-                                    <field name="payment_status"/>
+                                    <field name="amount_contributed"
+                                           widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"
+                                           invisible="level == 'bronze'"
+                                           required="level != 'bronze'"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="payment_status" invisible="level == 'bronze'"/>
                                 </group>
                             </group>
                             <br/>
@@ -38,10 +43,10 @@
                                 <group string="Miscellaneous">
                                     <field name="support"
                                            placeholder="Non-monetary contributions, if any..."
-                                           rows="2"/>
+                                           rows="3"/>
                                     <field name="note"
                                            placeholder="Other notes..."
-                                           rows="2"/>
+                                           rows="3"/>
                                 </group>
                             </group>
                         </div>

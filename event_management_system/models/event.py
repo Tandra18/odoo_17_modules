@@ -61,6 +61,7 @@ class Event(models.Model):
         for record in self:
             if not re.match(regex, record.hotline):
                 raise exceptions.ValidationError("Hotline must be a numeric value between 9 and 11 digits!")
+
     @api.constrains('max_person', 'event_type')
     def _check_attendants(self):
         for record in self:
@@ -98,3 +99,5 @@ class Event(models.Model):
                         "(XX Hr/hr/Hrs/hrs)\n"
                         "(XX:XX Hrs/hrs)"
                     )
+
+
