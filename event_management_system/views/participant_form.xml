@@ -28,11 +28,15 @@
                                 </group>
                             </group>
                             <br/>
-                            <group string="Event Info">
-                                <field name="event_id"/>
-                                <field name="reg_date"/>
-                                <field name="fees"/>
-                                <field name="payment"/>
+                            <group>
+                                <group string="Event Info">
+                                    <field name="event_id"/>
+                                    <field name="reg_date"/>
+                                </group>
+                                <group string="Payment Info">
+                                    <field name="fees"/>
+                                    <field name="payment"/>
+                                </group>
                             </group>
                         </div>
                     </sheet>

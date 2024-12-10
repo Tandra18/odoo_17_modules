@@ -57,7 +57,6 @@ class participants(models.Model):
     @api.onchange('event_id')
     def _onchange_event_id(self):
         if self.event_id:
-            # Copy the 'amount' value from the selected event to the 'fees' field
             self.fees = self.event_id.amount
 
     # _sql_constraints = ('email_unique', 'unique(email)', 'Participant Email must be unique!')
