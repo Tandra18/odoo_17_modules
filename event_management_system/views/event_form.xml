@@ -78,6 +78,17 @@
                             </group>
                         </group>
                          <notebook>
+                             <page string="Participants">
+                                 <field name="participant_id">
+                                     <tree>
+                                         <field name="image" widget="image" options="{'size':[20,20]}" nolabel="0"/>
+                                         <field name="name"/>
+                                         <field name="gender"/>
+                                         <field name="fees"/>
+                                         <field name="phone"/>
+                                     </tree>
+                                 </field>
+                             </page>
                              <page string="Sponsors">
                                  <field name="sponsor_id">
                                      <tree>
@@ -86,17 +97,6 @@
                                          <field name="level"/>
                                          <field name="payment_status"/>
                                          <field name="contact_person"/>
-                                         <field name="phone"/>
-                                     </tree>
-                                 </field>
-                             </page>
-                             <page string="Participants">
-                                 <field name="participant_id">
-                                     <tree>
-                                         <field name="image" widget="image" options="{'size':[20,20]}" nolabel="0"/>
-                                         <field name="name"/>
-                                         <field name="fees"/>
-                                         <field name="gender"/>
                                          <field name="phone"/>
                                      </tree>
                                  </field>
