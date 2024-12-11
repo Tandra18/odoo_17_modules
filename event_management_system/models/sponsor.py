@@ -11,12 +11,12 @@ class Sponsor(models.Model):
     image = fields.Binary(string="Logo", required=True)
     event_id = fields.Many2one('event.management', string="Event", required=True)
     reg_date = fields.Date(string="Agreement Date", required=True)
-    website = fields.Char(string="Website", required=True)
+    website = fields.Char(string="Website")
 
     contact_person = fields.Char(string="Contact Person", required=True)
-    email = fields.Char(string="Email", required=True)
+    email = fields.Char(string="Email")
     phone = fields.Char(string="Phone", required=True)
-    address = fields.Char(string="Address", required=True)
+    address = fields.Char(string="Address")
 
     level = fields.Selection(
         [
@@ -38,8 +38,32 @@ class Sponsor(models.Model):
         ], string="Payment"
     )
     support = fields.Text(string="In-Kind Support")
-
     note = fields.Text(string="Notes")
+
+    state = fields.Selection(
+        [
+            ('draft', 'Draft'),
+            ('done', 'Done'),
+            ('confirm', 'Confirmed'),
+            ('cancel', 'Canceled'),
+        ], string="Status", default="draft", tracking=True
+    )
+
+    def action_draft(self):
+        for record in self:
+            record.state = 'draft'
+
+    def action_confirm(self):
+        for record in self:
+            record.state = 'confirm'
+
+    def action_done(self):
+        for record in self:
+            record.state = 'done'
+
+    def action_cancel(self):
+        for record in self:
+            record.state = 'cancel'
 
     @api.constrains('phone')
     def _check_hotline_number(self):
