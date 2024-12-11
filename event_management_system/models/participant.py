@@ -34,6 +34,14 @@ class Participants(models.Model):
         ], string="Payment Type"
     )
 
+    payment_status = fields.Selection(
+        [
+            ('pending', 'Pending'),
+            ('partial', 'Partially Paid'),
+            ('paid', 'Paid'),
+        ], string="Payment Status"
+    )
+
     state = fields.Selection(
         [
             ('draft', 'Draft'),

@@ -60,7 +60,8 @@
                                 </group>
                                 <group string="Payment Info">
                                     <field name="fees"/>
-                                    <field name="payment"/>
+                                    <field name="payment" invisible="('fees', '=', 0)"/>
+                                    <field name="payment_status" invisible="('fees', '=', 0)"/>
                                 </group>
                             </group>
                         </div>
