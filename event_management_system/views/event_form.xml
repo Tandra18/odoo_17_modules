@@ -8,24 +8,29 @@
                 <form string="Event Form">
                     <header>
                         <field name="state" widget="statusbar"/>
-                        <button type="object"
-                                name="action_draft"
-                                string="Mark as Draft"
-                                invisible="state != 'cancel'"/>
+                        <!-- Button: Done (Visible only in 'draft' state) -->
                         <button type="object"
                                 name="action_done"
                                 string="Done"
                                 class="oe_highlight"
                                 invisible="state != 'draft'"/>
+                        <!-- Button: Mark as Draft (Visible in 'done', 'confirm', and 'cancel' states) -->
+                        <button type="object"
+                                name="action_draft"
+                                string="Mark as Draft"
+                                invisible="state not in ('done', 'confirm', 'cancel')"/>
+                        <!-- Button: Confirm (Visible only in 'done' state) -->
                         <button type="object"
                                 name="action_confirm"
                                 string="Confirm"
                                 class="oe_highlight"
                                 invisible="state != 'done'"/>
+                        <!-- Button: Cancel (Visible in 'done' and 'confirm' states) -->
                         <button type="object"
                                 name="action_cancel"
                                 string="Cancel"
-                                class="oe_highlight"/>
+                                class="oe_highlight"
+                                invisible="state not in ('done', 'confirm')"/>
                     </header>
                     <sheet>
                         <field name="image" widget="image" class="oe_avatar"/>

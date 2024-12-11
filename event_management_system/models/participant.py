@@ -3,7 +3,7 @@ import re
 from odoo import fields, models, api, exceptions
 
 
-class participants(models.Model):
+class Participants(models.Model):
     _name = 'event.participants'
     _description = 'Event Participants'
     _table = 'participants'
@@ -18,7 +18,7 @@ class participants(models.Model):
     )
     name = fields.Char(string='Name', required=True)
     nrc = fields.Char(string='NRC', required=True)
-    address = fields.Char(string="Address", required=True)
+    address = fields.Char(string="Address")
     email = fields.Char(string="Email", required=True)
     phone = fields.Char(string="Phone Number", required=True)
     event_id = fields.Many2one('event.management', string='Event', required=True)
@@ -33,6 +33,31 @@ class participants(models.Model):
             ('awallet', 'A+ Wallet'),
         ], string="Payment Type"
     )
+
+    state = fields.Selection(
+        [
+            ('draft', 'Draft'),
+            ('done', 'Done'),
+            ('confirm', 'Confirmed'),
+            ('cancel', 'Canceled'),
+        ], string="Status", default="draft", tracking=True
+    )
+
+    def action_draft(self):
+        for record in self:
+            record.state = 'draft'
+
+    def action_confirm(self):
+        for record in self:
+            record.state = 'confirm'
+
+    def action_done(self):
+        for record in self:
+            record.state = 'done'
+
+    def action_cancel(self):
+        for record in self:
+            record.state = 'cancel'
 
     @api.constrains('phone')
     def _check_hotline_number(self):
