@@ -114,6 +114,7 @@
                                          <field name="image" widget="image" options="{'size':[20,20]}" nolabel="0"/>
                                          <field name="name"/>
                                          <field name="gender"/>
+                                         <field name="payment_status"/>
                                          <field name="phone"/>
                                          <field name="email"/>
                                          <field name="reg_date"/>
