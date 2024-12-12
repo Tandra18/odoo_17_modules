@@ -28,9 +28,5 @@
                   name="Sponsors"
                   parent="first_level_sponsorship"
                   action="action_sponsor"/>
-        <menuitem id="third_level_sponsorship"
-                  name="Sponsor Agreements"
-                  parent="first_level_sponsorship"
-                  action="action_sponsor_agreement"/>
     </data>
 </odoo>
