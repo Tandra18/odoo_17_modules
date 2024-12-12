@@ -37,31 +37,52 @@
                         <div class="oe_title">
                             <label for="name" class="oe_edit_only"/>
                             <h1>
-                                <field name="name" placeholder="eg. Mg Mg"/>
+                                <field name="name" placeholder="eg. Mg Mg"
+                                       readonly="state in ['confirm', 'done', 'cancel']"/>
                             </h1><br/>
                         </div>
                         <div>
                             <group string="Personal Info">
                                 <group>
-                                    <field name="age" widget="char"/>
-                                    <field name="gender" widget="radio" options="{'horizontal': true}"/>
-                                    <field name="nrc" placeholder="xx/xxx(N)xxxxxx"/>
+                                    <field name="age"
+                                           widget="char"
+                                           readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="gender"
+                                           widget="radio"
+                                           options="{'horizontal': true}"
+                                           readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="nrc"
+                                           placeholder="xx/xxx(N)xxxxxx"
+                                           readonly="state in ['confirm', 'cancel']"/>
                                 </group>
                                 <group>
-                                    <field name="address"/>
-                                    <field name="email" placeholder="example@gmail.com"/>
-                                    <field name="phone" placeholder="09-xxx-xxx-xxx" widget="char"/>
+                                    <field name="address"
+                                           readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="email"
+                                           placeholder="example@gmail.com"
+                                           readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="phone"
+                                           placeholder="09-xxx-xxx-xxx"
+                                           widget="char"
+                                           readonly="state in ['confirm', 'cancel']"/>
                                 </group>
                             </group>
                             <group>
                                 <group string="Event Info">
-                                    <field name="event_id"/>
-                                    <field name="reg_date"/>
+                                    <field name="event_id"
+                                           readonly="state in ['confirm', 'done', 'cancel']"/>
+                                    <field name="reg_date"
+                                           readonly="state in ['confirm', 'done', 'cancel']"/>
                                 </group>
                                 <group string="Payment Info">
-                                    <field name="fees"/>
-                                    <field name="payment" invisible="fees == 0"/>
-                                    <field name="payment_status" invisible="fees == 0"/>
+                                    <field name="fees"
+                                           readonly="state in ['confirm', 'done', 'cancel']"/>
+                                    <field name="payment"
+                                           invisible="fees == 0"
+                                           readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="payment_status"
+                                           invisible="fees == 0"
+                                           readonly="state in ['confirm', 'cancel']"/>
                                 </group>
                             </group>
                         </div>

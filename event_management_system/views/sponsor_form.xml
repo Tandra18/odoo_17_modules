@@ -37,42 +37,59 @@
                         <div class="oe_title">
                             <label for="name" class="oe_edit_only"/>
                             <h1>
-                                <field name="name" placeholder="eg. Royal-D"/>
+                                <field name="name"
+                                       placeholder="eg. Royal-D"
+                                       readonly="state in ['confirm', 'done', 'cancel']"/>
                             </h1><br/>
                         </div>
                         <div>
                             <group>
                                 <group string="Associated Event">
-                                    <field name="event_id"/>
-                                    <field name="reg_date"/>
-                                    <field name="website"/>
+                                    <field name="event_id"
+                                           readonly="state in ['confirm', 'done', 'cancel']"/>
+                                    <field name="reg_date"
+                                           readonly="state in ['confirm', 'done', 'cancel']"/>
+                                    <field name="website"
+                                           readonly="state in ['confirm', 'cancel']"/>
                                 </group>
                                 <group string="Sponsorship Info">
-                                    <field name="level"/>
+                                    <field name="level"
+                                           readonly="state in ['confirm', 'done', 'cancel']"/>
                                     <field name="amount_contributed"
                                            widget="monetary"
                                            options="{'currency_field': 'currency_id'}"
                                            invisible="level == 'bronze'"
-                                           required="level != 'bronze'"/>
+                                           required="level != 'bronze'"
+                                           readonly="state in ['confirm', 'cancel']"/>
                                     <field name="currency_id" invisible="1"/>
-                                    <field name="payment_status" invisible="level == 'bronze'"/>
+                                    <field name="payment_status"
+                                           invisible="level == 'bronze'"
+                                           readonly="state in ['confirm', 'cancel']"/>
                                 </group>
                             </group>
-
                             <group>
                                 <group string="Contact Info">
-                                    <field name="contact_person"/>
-                                    <field name="phone" placeholder="09-xxx-xxx-xxx" widget="char"/>
-                                    <field name="email" placeholder="example@gmail.com"/>
-                                    <field name="address"/>
+                                    <field name="contact_person"
+                                           readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="phone"
+                                           placeholder="09-xxx-xxx-xxx"
+                                           widget="char"
+                                           readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="email"
+                                           placeholder="example@gmail.com"
+                                           readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="address"
+                                           readonly="state in ['confirm', 'cancel']"/>
                                 </group>
                                 <group string="Miscellaneous">
                                     <field name="support"
                                            placeholder="Non-monetary contributions, if any..."
-                                           rows="3"/>
+                                           rows="3"
+                                           readonly="state in ['confirm', 'cancel']"/>
                                     <field name="note"
                                            placeholder="Other notes..."
-                                           rows="3"/>
+                                           rows="3"
+                                           readonly="state in ['confirm', 'cancel']"/>
                                 </group>
                             </group>
                         </div>
