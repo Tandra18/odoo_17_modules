@@ -8,8 +8,12 @@ class Agreement(models.Model):
 
     event_id = fields.Many2one('event.management',string="Event Name", required=True)
     sponsor_id = fields.Many2one('event.sponsor', string="Sponsor Name", required=True)
+    image = fields.One2many('event.sponsor', 'image', string="Logo")
     agreed_date = fields.Date(string="Agreement Date", required=True)
-    contract = fields.Binary(string="Signed Contract", required=True, attachment=True)
+    contract = fields.Binary(string="Signed Contract",
+                             required=True,
+                             attachment=True,
+                             help="Upload the PDF file of the signed contract!")
     is_agree = fields.Boolean(string="I agree the policies of the event!", required=True)
 
     payment_status = fields.Selection(

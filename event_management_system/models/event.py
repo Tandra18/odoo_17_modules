@@ -12,7 +12,7 @@ class Event(models.Model):
     organizer = fields.Char(string="Organizer", required=True)
     name = fields.Char(string="Event Name", required=True)
     event_description = fields.Text(string="Description", help="Tell something about the event!")
-    sponsor_id = fields.One2many('event.sponsor', 'event_id', string="Sponsors")
+    sponsor_id = fields.One2many('sponsor.agreement', 'event_id', string="Sponsors")
     participant_id = fields.One2many('event.participants', 'event_id', string="Participants")
     event_type = fields.Selection(
         [

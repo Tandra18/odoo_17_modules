@@ -9,7 +9,6 @@ class Sponsor(models.Model):
 
     name = fields.Char(string="Name", required=True)
     image = fields.Binary(string="Logo", required=True)
-    event_id = fields.Many2one('event.management', string="Event", required=True)
     reg_date = fields.Date(string="Registration Date", required=True)
     website = fields.Char(string="Website")
 

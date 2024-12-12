@@ -125,10 +125,9 @@
                                  <field name="sponsor_id">
                                      <tree>
                                          <field name="image" widget="image" options="{'size':[20,20]}" nolabel="0"/>
-                                         <field name="name"/>
-                                         <field name="level"/>
-                                         <field name="contact_person"/>
-                                         <field name="phone"/>
+                                         <field name="sponsor_id"/>
+                                         <field name="agreed_date"/>
+                                         <field name="payment_status"/>
                                      </tree>
                                  </field>
                              </page>

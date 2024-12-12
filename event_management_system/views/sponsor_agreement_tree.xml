@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="sponsor_views_tree" model="ir.ui.view">
+            <field name="name">sponsor.agreement.tree</field>
+            <field name="model">sponsor.agreement</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="event_id" optional="show"/>
+                    <field name="sponsor_id" optional="show"/>
+                    <field name="agreed_date" optional="show"/>
+                    <field name="payment_status" optional="show"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
