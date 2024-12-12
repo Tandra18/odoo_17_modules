@@ -127,7 +127,6 @@
                                          <field name="image" widget="image" options="{'size':[20,20]}" nolabel="0"/>
                                          <field name="name"/>
                                          <field name="level"/>
-                                         <field name="payment_status"/>
                                          <field name="contact_person"/>
                                          <field name="phone"/>
                                      </tree>

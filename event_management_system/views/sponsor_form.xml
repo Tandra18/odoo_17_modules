@@ -45,8 +45,6 @@
                         <div>
                             <group>
                                 <group string="Associated Event">
-                                    <field name="event_id"
-                                           readonly="state in ['confirm', 'done', 'cancel']"/>
                                     <field name="reg_date"
                                            readonly="state in ['confirm', 'done', 'cancel']"/>
                                     <field name="website"
@@ -62,9 +60,7 @@
                                            required="level != 'bronze'"
                                            readonly="state in ['confirm', 'cancel']"/>
                                     <field name="currency_id" invisible="1"/>
-                                    <field name="payment_status"
-                                           invisible="level == 'bronze'"
-                                           readonly="state in ['confirm', 'cancel']"/>
+
                                 </group>
                             </group>
                             <group>

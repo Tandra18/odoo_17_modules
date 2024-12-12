@@ -10,7 +10,7 @@ class Sponsor(models.Model):
     name = fields.Char(string="Name", required=True)
     image = fields.Binary(string="Logo", required=True)
     event_id = fields.Many2one('event.management', string="Event", required=True)
-    reg_date = fields.Date(string="Agreement Date", required=True)
+    reg_date = fields.Date(string="Registration Date", required=True)
     website = fields.Char(string="Website")
 
     contact_person = fields.Char(string="Contact Person", required=True)
@@ -30,13 +30,7 @@ class Sponsor(models.Model):
     currency_id = fields.Many2one('res.currency',
                                   string="Currency",
                                   default=lambda self: self.env['res.currency'].search([('name', '=', 'MMK')], limit=1))
-    payment_status = fields.Selection(
-        [
-            ('pending', 'Pending'),
-            ('partial', 'Partially Paid'),
-            ('paid', 'Paid'),
-        ], string="Payment"
-    )
+
     support = fields.Text(string="In-Kind Support")
     note = fields.Text(string="Notes")
 
