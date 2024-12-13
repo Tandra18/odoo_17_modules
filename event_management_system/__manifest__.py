@@ -23,6 +23,7 @@
         "views/sponsor_agreement_views.xml",
         "views/sponsor_agreement_form.xml",
         "views/sponsor_agreement_tree.xml",
+        "views/participated_list_views.xml",
 
 
     ],

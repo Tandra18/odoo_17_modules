@@ -11,9 +11,13 @@
                 </p>
             </field>
         </record>
+        <menuitem id="root_menu_participation"
+                  name="Participation"
+                  parent="root_menu_ems"/>
         <menuitem id="root_menu_participant"
                   name="Participants"
-                  parent="root_menu_ems"
-                  action="action_participant"/>
+                  parent="root_menu_participation"
+                  action="action_participant"
+                  sequence="1"/>
     </data>
 </odoo>

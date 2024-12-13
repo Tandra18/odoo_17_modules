@@ -7,3 +7,5 @@ access_event_participants_user,event_participants_user,model_event_participants,
 access_event_sponsor_user,event_sponsor_user,model_event_sponsor,base.group_user,1,1,1,1
 
 access_sponsor_agreement_user,sponsor_agreement_user,model_sponsor_agreement,base.group_user,1,1,1,1
+
+access_participated_list_user,participated_list_user,model_participated_list,base.group_user,1,1,1,1

@@ -1,4 +1,4 @@
-from odoo import fields, api, models
+from odoo import fields, api, models, exceptions
 
 
 class Agreement(models.Model):
@@ -46,8 +46,8 @@ class Agreement(models.Model):
 
     agreed_date = fields.Date(string="Agreement Date", required=True)
     contract = fields.Binary(string="Signed Contract",
-                             required=True,
                              attachment=True,
+                             required=True,
                              help="Upload the PDF file of the signed contract!")
     is_agree = fields.Boolean(string="I agree the policies of the event!", required=True)
 
@@ -56,7 +56,7 @@ class Agreement(models.Model):
             ('pending', 'Pending'),
             ('partial', 'Partially Paid'),
             ('paid', 'Paid'),
-        ], string="Payment Status"
+        ], string="Payment Status", required=True
     )
 
     state = fields.Selection(
@@ -76,6 +76,12 @@ class Agreement(models.Model):
         for record in self:
             record.state = 'confirm'
 
+    def is_agree_confirm(self):
+        for record in self:
+            if not record.is_agree:
+                raise exceptions.ValidationError("You must agree to the event policies to got to confirm state!")
+            record.state = 'confirm'
+
     def action_done(self):
         for record in self:
             record.state = 'done'
@@ -83,3 +89,4 @@ class Agreement(models.Model):
     def action_cancel(self):
         for record in self:
             record.state = 'cancel'
+

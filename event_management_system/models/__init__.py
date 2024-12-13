@@ -1,1 +1,1 @@
-from . import event, participant, sponsor, agreement
+from . import event, participant, sponsor, agreement, participated_list

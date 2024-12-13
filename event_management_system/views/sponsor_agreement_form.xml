@@ -36,14 +36,14 @@
                         <div>
                             <group>
                                 <group>
-                                    <field name="event_id"/>
-                                    <field name="sponsor_id"/>
-                                    <field name="payment_status"/>
+                                    <field name="event_id" readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="sponsor_id" readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="payment_status" readonly="state in ['confirm', 'cancel']"/>
                                 </group>
                                 <group>
-                                    <field name="agreed_date"/>
-                                    <field name="contract"/>
-                                    <field name="is_agree"/>
+                                    <field name="agreed_date" readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="contract" readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="is_agree" readonly="state in ['confirm', 'cancel']"/>
                                 </group>
                             </group>
                         </div>
