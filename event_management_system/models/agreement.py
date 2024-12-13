@@ -6,9 +6,44 @@ class Agreement(models.Model):
     _description = 'Sponsor Agreement'
     _table = 'sponsor_agreement'
 
-    event_id = fields.Many2one('event.management',string="Event Name", required=True)
+    event_id = fields.Many2one('event.management', string="Event Name", required=True)
     sponsor_id = fields.Many2one('event.sponsor', string="Sponsor Name", required=True)
-    image = fields.One2many('event.sponsor', 'image', string="Logo")
+
+    sponsor_logo = fields.Binary(
+        string="Logo",
+        related="sponsor_id.image",
+    )
+
+    sponsor_level = fields.Selection(
+        string="Level",
+        related="sponsor_id.level",
+    )
+
+    sponsor_phone = fields.Char(
+        string="Phone",
+        related="sponsor_id.phone",
+    )
+
+    sponsor_email = fields.Char(
+        string="Email",
+        related="sponsor_id.email",
+    )
+
+    sponsor_address = fields.Char(
+        string="Address",
+        related="sponsor_id.address",
+    )
+
+    sponsor_contact_person = fields.Char(
+        string="Contact Person",
+        related="sponsor_id.contact_person",
+    )
+
+    sponsor_amount_contributed = fields.Integer(
+        string="Amount Contributed",
+        related="sponsor_id.amount_contributed",
+    )
+
     agreed_date = fields.Date(string="Agreement Date", required=True)
     contract = fields.Binary(string="Signed Contract",
                              required=True,
