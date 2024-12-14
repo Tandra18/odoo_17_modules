@@ -5,12 +5,13 @@
             <field name="name">event.form</field>
             <field name="model">event.management</field>
             <field name="arch" type="xml">
-                <form string="Event Form">
+                <form string="Event Form" class="custom-background">
                     <header>
                         <field name="state" widget="statusbar"/>
                         <!-- Button: Done (Visible only in 'draft' state) -->
                         <button type="object"
                                 name="action_done"
+                                id="button_done"
                                 string="Done"
                                 class="oe_highlight"
                                 invisible="state != 'draft'"/>
@@ -33,7 +34,7 @@
                                 invisible="state not in ('done', 'confirm')"/>
                     </header>
                     <sheet>
-                            <div class="custom-header">
+                            <div class="custom-header" id="namecss">
                                 <field name="image" widget="image" class="oe_avatar"/>
                                 <div class="oe_title">
                                     <label for="name" class="oe_edit_only"/>

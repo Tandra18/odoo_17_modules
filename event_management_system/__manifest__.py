@@ -31,6 +31,7 @@
     'assets': {
         'web.assets_backend': [
             'event_management_system/static/src/css/style.css',
+            'event_management_system/static/src/js/buttons.js',
         ],
 }
 

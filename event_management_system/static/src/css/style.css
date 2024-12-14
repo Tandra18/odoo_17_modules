@@ -1,14 +1,35 @@
-.custom-header{
+.custom-header {
     background-color: lightblue;  /* Green background */
     color: black;               /* White text color */
     padding: 10px;              /* Padding around the header */
     font-weight: bold;          /* Make the text bold */
 }
 
-.o_notebook .o_page {
-    background-color: lightblue;
+.custom-background{
+    background-color: gray;  /* Green background */
+    color: black;               /* White text color */
+    padding: 10px;              /* Padding around the header */
+    font-weight: bold;          /* Make the text bold */
 }
 
+/* Custom styles for o_content */
+.o_content {
+    background-color: gray; /* Light grey background */
+    color: #333333;  /* Dark text color */
+}
+
+.tab-pane {
+    background-color: green; /* Light grey background for the notebook */
+}
 input::placeholder,
 textarea::placeholder {
     color: black;  /* Dark gray for general placeholders */
+}
+
+.done-style {
+    background-color: yellow;  /* Green background */
+    color: black;               /* White text color */
+    padding: 10px;              /* Padding around the header */
+    font-weight: bold;          /* Make the text bold */
+}
+
