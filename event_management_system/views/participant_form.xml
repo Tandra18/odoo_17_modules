@@ -33,15 +33,25 @@
                                 invisible="state not in ('done', 'confirm')"/>
                     </header>
                     <sheet>
-                        <field name="image" widget="image" class="oe_avatar"/>
-                        <div class="oe_title">
-                            <label for="name" class="oe_edit_only"/>
-                            <h1>
-                                <field name="name" placeholder="eg. Mg Mg"
-                                       readonly="state in ['confirm', 'done', 'cancel']"/>
-                            </h1><br/>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="action"
+                                    name="%(action_participated_line)d"
+                                    class="oe_stat_button"
+                                    icon="fa-history">
+                                Participation History
+                            </button>
                         </div>
-                        <div>
+                        <div class="custom-header">
+                            <field name="image" widget="image" class="oe_avatar"/>
+                            <div class="oe_title">
+                                <label for="name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" placeholder="eg. Mg Mg"
+                                           readonly="state in ['confirm', 'done', 'cancel']"/>
+                                </h1><br/>
+                            </div>
+                        </div>
+                        <div class="custom-header">
                             <group string="Personal Info">
                                 <group>
                                     <field name="age"
@@ -49,7 +59,6 @@
                                            readonly="state in ['confirm', 'cancel']"/>
                                     <field name="gender"
                                            widget="radio"
-                                           options="{'horizontal': true}"
                                            readonly="state in ['confirm', 'cancel']"/>
                                     <field name="nrc"
                                            placeholder="xx/xxx(N)xxxxxx"
@@ -65,24 +74,8 @@
                                            placeholder="09-xxx-xxx-xxx"
                                            widget="char"
                                            readonly="state in ['confirm', 'cancel']"/>
-                                </group>
-                            </group>
-                            <group>
-                                <group string="Event Info">
-                                    <field name="event_id"
-                                           readonly="state in ['confirm', 'done', 'cancel']"/>
                                     <field name="reg_date"
                                            readonly="state in ['confirm', 'done', 'cancel']"/>
-                                </group>
-                                <group string="Payment Info">
-                                    <field name="fees"
-                                           readonly="state in ['confirm', 'done', 'cancel']"/>
-                                    <field name="payment"
-                                           invisible="fees == 0"
-                                           readonly="state in ['confirm', 'cancel']"/>
-                                    <field name="payment_status"
-                                           invisible="fees == 0"
-                                           readonly="state in ['confirm', 'cancel']"/>
                                 </group>
                             </group>
                         </div>

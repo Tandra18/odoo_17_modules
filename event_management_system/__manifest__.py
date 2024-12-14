@@ -19,17 +19,20 @@
         "views/participant_views_tree.xml",
         "views/sponsor_views.xml",
         "views/sponsor_form.xml",
-        "views/sponsor_views_tree.xml",
         "views/sponsor_agreement_views.xml",
         "views/sponsor_agreement_form.xml",
-        "views/sponsor_agreement_tree.xml",
         "views/participated_list_views.xml",
-
+        "views/participated_list_form.xml",
+        "views/sponsor_views_tree.xml",
+        "views/participated_list_line_views.xml",
+        "views/agreement_list_line.xml",
 
     ],
-    "assests":{
+    'assets': {
         'web.assets_backend': [
             'event_management_system/static/src/css/style.css',
         ],
-    },
+}
+
+
 }

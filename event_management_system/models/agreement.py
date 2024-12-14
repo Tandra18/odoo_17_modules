@@ -56,7 +56,7 @@ class Agreement(models.Model):
             ('pending', 'Pending'),
             ('partial', 'Partially Paid'),
             ('paid', 'Paid'),
-        ], string="Payment Status", required=True
+        ], string="Payment Status",
     )
 
     state = fields.Selection(

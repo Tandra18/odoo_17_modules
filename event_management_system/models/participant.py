@@ -21,26 +21,8 @@ class Participants(models.Model):
     address = fields.Char(string="Address")
     email = fields.Char(string="Email", required=True)
     phone = fields.Char(string="Phone Number", required=True)
-    event_id = fields.Many2one('event.management', string='Event', required=True)
     reg_date = fields.Date(string='Registration Date', default=fields.Datetime.now)
-    fees = fields.Integer(string="Fees")
-    payment = fields.Selection(
-        [
-            ('kpay', 'KBZ Pay'),
-            ('wave', 'Wave Pay'),
-            ('ayapay', 'AYA Pay'),
-            ('cbpay', 'CB Pay'),
-            ('awallet', 'A+ Wallet'),
-        ], string="Payment Type"
-    )
 
-    payment_status = fields.Selection(
-        [
-            ('pending', 'Pending'),
-            ('partial', 'Partially Paid'),
-            ('paid', 'Paid'),
-        ], string="Payment Status"
-    )
 
     state = fields.Selection(
         [
@@ -87,9 +69,5 @@ class Participants(models.Model):
             if record.age < 10 or record.age > 99:
                 raise exceptions.ValidationError("Age must be between 10 to 99!")
 
-    @api.onchange('event_id')
-    def _onchange_event_id(self):
-        if self.event_id:
-            self.fees = self.event_id.amount
 
     # _sql_constraints = ('email_unique', 'unique(email)', 'Participant Email must be unique!')

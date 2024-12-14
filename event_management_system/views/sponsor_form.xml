@@ -33,24 +33,34 @@
                                 invisible="state not in ('done', 'confirm')"/>
                     </header>
                     <sheet>
-                        <field name="image" class="oe_avatar" widget="image"/>
-                        <div class="oe_title">
-                            <label for="name" class="oe_edit_only"/>
-                            <h1>
-                                <field name="name"
-                                       placeholder="eg. Royal-D"
-                                       readonly="state in ['confirm', 'done', 'cancel']"/>
-                            </h1><br/>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="action"
+                                    name="%(action_agreement_line)d"
+                                    class="oe_stat_button"
+                                    icon="fa-history">
+                                Sponsorship History
+                            </button>
                         </div>
-                        <div>
-                            <group>
-                                <group string="Associated Event">
+                        <div class="custom-header">
+                            <field name="image" class="oe_avatar" widget="image"/>
+                            <div class="oe_title">
+                                <label for="name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name"
+                                           placeholder="eg. Royal-D"
+                                           readonly="state in ['confirm', 'done', 'cancel']"/>
+                                </h1><br/>
+                            </div>
+                        </div>
+                        <div class="custom-header">
+                            <group string="Sponsorship Info">
+                                <group>
                                     <field name="reg_date"
                                            readonly="state in ['confirm', 'done', 'cancel']"/>
                                     <field name="website"
                                            readonly="state in ['confirm', 'cancel']"/>
                                 </group>
-                                <group string="Sponsorship Info">
+                                <group>
                                     <field name="level"
                                            readonly="state in ['confirm', 'done', 'cancel']"/>
                                     <field name="amount_contributed"
@@ -60,7 +70,6 @@
                                            required="level != 'bronze'"
                                            readonly="state in ['confirm', 'cancel']"/>
                                     <field name="currency_id" invisible="1"/>
-
                                 </group>
                             </group>
                             <group>

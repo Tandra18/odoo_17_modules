@@ -1,0 +1,14 @@
+.custom-header{
+    background-color: lightblue;  /* Green background */
+    color: black;               /* White text color */
+    padding: 10px;              /* Padding around the header */
+    font-weight: bold;          /* Make the text bold */
+}
+
+.o_notebook .o_page {
+    background-color: lightblue;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: black;  /* Dark gray for general placeholders */

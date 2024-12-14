@@ -8,11 +8,13 @@
                 <tree>
                     <field name="image" widget="image" options="{'size':[20,20]}" nolabel="0"/>
                     <field name="name" optional="show"/>
+                    <field name="age" optional="hide"/>
+                    <field name="gender" optional="show"/>
                     <field name="nrc" optional="hide"/>
                     <field name="email" optional="show"/>
                     <field name="phone" optional="show"/>
-                    <field name="event_id" optional="show"/>
-                    <field name="reg_date" optional="hide"/>
+                    <field name="address" optional="show"/>
+                    <field name="reg_date" optional="show"/>
                 </tree>
             </field>
         </record>

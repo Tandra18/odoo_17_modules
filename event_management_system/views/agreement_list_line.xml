@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="agreement_list_line_tree" model="ir.ui.view">
+            <field name="name">agreement.list.line.tree</field>
+            <field name="model">sponsor.agreement</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="event_id"/>
+                    <field name="sponsor_id"/>
+                    <field name="agreed_date"/>
+                    <field name="payment_status"/>
+                    <field name="sponsor_amount_contributed"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_agreement_line" model="ir.actions.act_window">
+            <field name="name">Agreement List Line</field>
+            <field name="res_model">sponsor.agreement</field>
+            <field name="view_mode">tree,kanban</field>
+            <field name="domain">[('sponsor_id', '=', active_id)]</field>
+            <field name="context">{'group_by':['event_id']}</field>
+        </record>
+    </data>
+</odoo>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
-        <record id="sponsor_agreement_form" model="ir.ui.view">
-            <field name="name">sponsor.agreement.form</field>
-            <field name="model">sponsor.agreement</field>
+        <record id="participated_list_form" model="ir.ui.view">
+            <field name="name">participated.list.form</field>
+            <field name="model">participated.list</field>
             <field name="arch" type="xml">
-                <form>
+                <form string="Participated List Form">
                     <header>
                         <field name="state" widget="statusbar"/>
                         <!-- Button: Done (Visible only in 'draft' state) -->
@@ -36,17 +36,16 @@
                         <div class="custom-header">
                             <group>
                                 <group>
-                                    <field name="event_id" readonly="state in ['confirm', 'cancel']"/>
-                                    <field name="sponsor_id" readonly="state in ['confirm', 'cancel']"/>
-                                    <field name="payment_status"
-                                           readonly="state in ['confirm', 'cancel']"/>
-<!--                                           invisible="sponsor_level == 'bronze'"-->
-<!--                                           required="sponsor_level != 'bronze'"/>-->
+                                    <field name="participant_id"/>
+                                    <field name="event_id"/>
+                                    <field name="reg_date"/>
                                 </group>
                                 <group>
-                                    <field name="agreed_date" readonly="state in ['confirm', 'cancel']"/>
-                                    <field name="contract" readonly="state in ['confirm', 'cancel']"/>
-                                    <field name="is_agree" readonly="state in ['confirm', 'cancel']"/>
+                                    <field name="participant_fees"/>
+                                    <field name="payment_status"
+                                           invisible="participant_fees == 0"
+                                           required="participant_fees != 0"/>
+                                    <field name="is_agree"/>
                                 </group>
                             </group>
                         </div>

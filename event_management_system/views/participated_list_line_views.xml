@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="participated_list_line_tree" model="ir.ui.view">
+            <field name="name">participated.list.line.tree</field>
+            <field name="model">participated.list</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="event_id"/>
+                    <field name="participant_id"/>
+                    <field name="reg_date"/>
+                    <field name="participant_fees"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_participated_line" model="ir.actions.act_window">
+            <field name="name">Participated List Line</field>
+            <field name="res_model">participated.list</field>
+            <field name="view_mode">tree,kanban</field>
+            <field name="domain">[('participant_id', '=', active_id)]</field>
+            <field name="context">{'group_by':['event_id']}</field>
+        </record>
+    </data>
+</odoo>
