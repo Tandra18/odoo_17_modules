@@ -18,9 +18,7 @@
     color: #333333;  /* Dark text color */
 }
 
-.tab-pane {
-    background-color: green; /* Light grey background for the notebook */
-}
+
 input::placeholder,
 textarea::placeholder {
     color: black;  /* Dark gray for general placeholders */
@@ -33,3 +31,15 @@ textarea::placeholder {
     font-weight: bold;          /* Make the text bold */
 }
 
+.o_list_renderer .o_list_table thead {
+    background-color: lightblue;
+}
+
+.o_form_view .o_form_sheet {
+    background-color: lightblue;
+}
+
+.o_notebook .nav {
+    padding: 0 var(--notebook-padding-x, 0);
+    background-color: lightblue;
+}

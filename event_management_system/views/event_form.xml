@@ -5,7 +5,7 @@
             <field name="name">event.form</field>
             <field name="model">event.management</field>
             <field name="arch" type="xml">
-                <form string="Event Form" class="custom-background">
+                <form string="Event Form">
                     <header>
                         <field name="state" widget="statusbar"/>
                         <!-- Button: Done (Visible only in 'draft' state) -->
@@ -34,7 +34,7 @@
                                 invisible="state not in ('done', 'confirm')"/>
                     </header>
                     <sheet>
-                            <div class="custom-header" id="namecss">
+                            <div class="custom-header">
                                 <field name="image" widget="image" class="oe_avatar"/>
                                 <div class="oe_title">
                                     <label for="name" class="oe_edit_only"/>
@@ -45,7 +45,7 @@
                                     </h1><br/>
                                 </div>
                             </div>
-                            <div class="custom-header">
+                            <div>
                                 <group string="Event Info">
                                     <group>
                                         <field name="event_type"
@@ -90,7 +90,7 @@
                                     </group>
                                 </group>
                             </div>
-                            <div class="custom-header">
+                            <div>
                                 <group string="Payment Info">
                                     <group>
                                         <field name="fees"
