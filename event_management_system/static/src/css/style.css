@@ -43,3 +43,8 @@ textarea::placeholder {
     padding: 0 var(--notebook-padding-x, 0);
     background-color: lightblue;
 }
+
+.o_list_renderer .o_list_table {
+    --table-bg: lightblue;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
